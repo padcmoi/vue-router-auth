@@ -24,10 +24,19 @@ const allowCrossDomain = function(req, res, next) {
 
 app.use(allowCrossDomain);
 
+const tokens = [
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAwLCJpYXQiOjE1ODgxNzIxOTAsImV4cCI6MTU4ODI1ODU5MH0.A9Yqv7om73ED5tv6-Fi1E268JcMmbBombGoLENiBEvI",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAwLCJpYXQiOjE1ODgxNzIyMDAsImV4cCI6MTU4ODI1ODYwMH0.r6Q4fj8brygNlbcl3tYFNrv8oK6FC9QISc2W57f6vAM",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAwLCJpYXQiOjE1ODgxNzIyMDksImV4cCI6MTU4ODI1ODYwOX0.u5YKiCw1LBoWAxtxx7TJY1VPFssy75NQ28dkErYtIj4",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAwLCJpYXQiOjE1ODgxNzI1MzAsImV4cCI6MTU4ODI1ODkzMH0.7XNhUMhp6Lr3r2HSos8DrNx0tEOTjrThthE9H6g55dE",
+];
+
 router.get("/test", (req, res) => {
-  jwt.sign({ id: 100 }, config.secret, {
+  const token = jwt.sign({ id: 100 }, config.secret, {
     expiresIn: 86400, // expires in 24 hours
   });
+  console.log(token);
+  res.status(200).send(token);
 });
 
 router.post("/register", function(req, res) {
