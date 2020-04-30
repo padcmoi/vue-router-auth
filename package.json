@@ -8,9 +8,12 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "bcrypt": "^4.0.1",
     "bootstrap-vue": "^2.1.0",
     "core-js": "^3.6.4",
+    "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.3",
+    "sqlite3": "^4.2.0",
     "vue": "^2.6.11",
     "vue-router": "^3.1.6",
     "vuex": "^3.1.3"
